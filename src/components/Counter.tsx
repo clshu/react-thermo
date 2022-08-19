@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -6,6 +6,7 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
+import init, { add } from "thermo-wasm";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -15,12 +16,21 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const add = (a: number, b: number) => a + b;
+// const add = (a: number, b: number) => a + b;
 
 function Counter() {
-  const [left, setLeft] = React.useState(0);
-  const [right, setRight] = React.useState(0);
-  const [result, setResult] = React.useState(0);
+  const [left, setLeft] = useState(0);
+  const [right, setRight] = useState(0);
+  const [result, setResult] = useState(0);
+
+  useEffect(() => {
+    init().then(() => {
+      console.log("thermo-wasm initialized");
+    });
+    setLeft(0);
+    setRight(0);
+    setResult(0);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
