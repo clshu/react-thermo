@@ -26,7 +26,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:wasm": "cd thermo-wasm && wasm-pack build --target web",
-    "clean:wasm": "cd thermo-wasm && rm -rf pkg target"
+    "clean:wasm": "cd thermo-wasm && rm -rf pkg target",
+    "test:wasm": "cd thermo-wasm && wasm-pack test --headless --chrome"
   },
   "eslintConfig": {
     "extends": [
