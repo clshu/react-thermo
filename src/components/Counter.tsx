@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-import init, { add } from "thermo-wasm";
+import React, { useState, useEffect } from 'react';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import init, { add } from 'thermo-wasm';
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
   padding: theme.spacing(1),
-  textAlign: "center",
+  textAlign: 'center',
   color: theme.palette.text.secondary,
 }));
 
@@ -25,7 +25,7 @@ function Counter() {
 
   useEffect(() => {
     init().then(() => {
-      console.log("thermo-wasm initialized");
+      console.log('thermo-wasm initialized');
     });
     setLeft(0);
     setRight(0);
@@ -39,10 +39,10 @@ function Counter() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     switch (e.target.name) {
-      case "left":
+      case 'left':
         setLeft(Number(e.target.value));
         break;
-      case "right":
+      case 'right':
         setRight(Number(e.target.value));
         break;
       default:
@@ -58,7 +58,7 @@ function Counter() {
             <Box
               component="form"
               sx={{
-                "& > :not(style)": { m: 1, width: "25ch" },
+                '& > :not(style)': { m: 1, width: '25ch' },
               }}
               noValidate
               autoComplete="off"
