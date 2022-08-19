@@ -1,0 +1,3 @@
+[submodule "thermo-wasm"]
+	path = thermo-wasm
+	url = git@github.com:clshu/thermo-wasm.git
